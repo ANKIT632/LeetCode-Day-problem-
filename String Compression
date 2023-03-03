@@ -1,0 +1,41 @@
+
+public class StringCompression {
+
+    static int find(char chars[]){
+        int n = chars.length;
+        if (n == 1) {
+            return 1;
+        }
+        
+        int i = 0, j = 0;
+        while (i < n) {
+            int count = 1;
+            while (i < n - 1 && chars[i] == chars[i + 1]) {
+                count++;
+                i++;
+            }
+            
+            // here j is set the position of charcter and ocurrence value 
+            chars[j++] = chars[i++]; // set the pos of string 
+            // then set how many time occur. 
+            if (count > 1) {
+                // if count 12 then store in two pos. '1','2'
+                String countStr = String.valueOf(count);
+                for (int k = 0; k < countStr.length(); k++) {
+                    chars[j++] = countStr.charAt(k);
+                }
+            }
+        }
+        
+        return j;
+    }
+    public static void main(String[] args) {
+        char a[]={'a','a','a','b','b','c','c','c','c','c','c','c','c','c','c','c','c','a','a'};
+        int l=find(a);
+          System.out.println(l);
+       
+          for(int i=0;i<l;i++)
+          System.out.print(a[i]+" ");
+    }
+    
+}
