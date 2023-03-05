@@ -1,0 +1,31 @@
+class Solution {
+    public List<String> letterCombinations(String digits) {
+
+        StringBuilder sb=new StringBuilder();
+        List<String> list=new ArrayList<>();
+        if(digits.length() == 0) return list;
+    
+        String keyStr[] = {"","","abc","def","ghi","jkl","mno","pqrs", "tuv", "wxyz"};
+
+        find(keyStr,digits,sb,list,0);
+    return list;
+
+    }
+
+    private static void find(String[] keyStr, String strNum, StringBuilder sb,List<String> list,int num) {
+         if(num==strNum.length()){
+            list.add(sb.toString());  //convt String builder to string
+            return;
+         }
+          int digit=strNum.charAt(num)-'0';
+         String curr=keyStr[digit];
+         for(int i=0;i<curr.length();i++){
+            sb.append(curr.charAt(i));
+            find(keyStr, strNum, sb, list, num+1);
+
+            // delete last element and place next char
+            sb.deleteCharAt(sb.length()-1);
+         }
+
+    }
+}
