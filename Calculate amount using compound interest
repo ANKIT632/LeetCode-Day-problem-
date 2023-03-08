@@ -1,0 +1,17 @@
+import java.util.Scanner;
+// Other imports go here
+// Do NOT change the class name
+class Main{
+    public static void main(String[] args)
+    {
+        // Write your code here
+      Scanner m=new Scanner(System.in);
+      double Famount=0;
+      float amount=m.nextFloat();
+      float Rate=m.nextFloat();
+      float time=m.nextFloat();
+      Famount=amount*(Math.pow((1+(Rate/100)),time));
+      Famount=Math.round(Famount*10)/10.0;
+      System.out.println(Famount);
+    }
+}
