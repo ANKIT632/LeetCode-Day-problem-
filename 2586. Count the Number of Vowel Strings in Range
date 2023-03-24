@@ -1,0 +1,16 @@
+class Solution {
+    public int vowelStrings(String[] words, int left, int right) {
+        int count=0;
+        for(int i=left;i<=right;i++){
+            String str=words[i];
+            int f=str.charAt(0);
+            int e=str.charAt(str.length()-1);
+
+            if( (f=='a' || f=='e'||f=='i' || f=='o'||f=='u') &&(e=='a' || e=='e'||e=='i' || e=='o'||e=='u') )
+            {
+                count++;
+            }
+        }
+  return count;  
+}
+}
