@@ -1,0 +1,45 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] arr) {
+    int n=arr.length-1;
+        int m=arr[0].length-1;
+        //col index
+        int t=0;
+        int b=n;
+
+        //row index
+        int l=0;
+        int r=m;
+        ArrayList<Integer> li=new ArrayList<>();
+        while(l<=r && t<=b){
+         
+            for(int i=l;i<=r;i++){
+                li.add(arr[t][i]);
+            }
+            t++;
+
+            for(int i=t;i<=b;i++){
+                li.add(arr[i][r]);
+            }
+            
+            r--;
+
+            // if there is 2*2 matrix 
+            if(t<=b){
+             for(int i=r;i>=l;i--){
+                 li.add(arr[b][i]);
+             }
+            b--;
+
+            }
+          
+            if(l<=r){
+                for(int i=b;i>=t;i--){
+                     li.add(arr[i][l]);
+                }
+                  l++;
+            }
+          
+      
+    }
+    return li;
+}}
