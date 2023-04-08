@@ -1,0 +1,23 @@
+class Solution {
+    public List<Integer> getRow(int n) {
+               n=n+1;
+        ArrayList<ArrayList<Integer>> list=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            ArrayList<Integer> li=new ArrayList<>();
+            li.add(1);
+            for(int j=0;j<=i-2;j++){
+                 int val= list.get(i-1).get(j)+list.get(i-1).get(j+1);
+                 li.add(val);
+            }
+
+            if(i!=0){
+            li.add(1);}
+
+            list.add(li);
+        }
+        ArrayList<Integer> lis=new ArrayList<>();
+        lis.addAll(list.get(n-1));
+     
+        return lis ;
+    }
+}
