@@ -1,0 +1,22 @@
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        int pos=0;
+        Stack<Integer> s=new Stack<>();
+        for(int i=0;i<pushed.length;i++){
+             s.push(pushed[i]);
+
+             if(s.peek()==popped[pos]){
+                 for(int j=pos;j<popped.length;j++){
+                     if(s.empty()!=true && s.peek()==popped[j]){
+                         s.pop();
+                     }
+                     else
+                     {   pos=j;
+                         break;
+                     }
+                 }
+             }
+            }
+          return s.empty();
+        }
+    }
