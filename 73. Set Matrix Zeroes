@@ -1,0 +1,42 @@
+class Solution {
+    public void setZeroes(int[][] arr) {
+       int n=arr.length;
+        int c=arr[0].length;
+      
+        int row[]=new int [n];
+        int col[]=new int[c];
+
+        // check where put zero
+        for(int i=0;i<n;i++){
+            for(int j=0;j<c;j++){
+                if(arr[i][j]==0){
+                    row[i]=1;
+                    col[j]=1;
+                }     
+    }
+        }
+
+// row zero
+       for(int i=0;i<n;i++){
+            for(int j=0;j<c;j++){
+           if(row[i]==1){
+            arr[i][j]=0;
+           } 
+           
+    }
+}
+
+// col zero
+
+    for(int i=0;i<c;i++){
+        for(int j=0;j<n;j++){
+       if(col[i]==1){
+        arr[j][i]=0;
+       } 
+       
+}
+        }
+      
+        
+    }
+}
