@@ -1,0 +1,28 @@
+class Solution {
+    private int longestZigZag = 0;
+
+    public int longestZigZag(TreeNode root) {
+        if (root == null) return 0;
+
+        find(root.left, true, 1);
+        find(root.right, false, 1);
+
+        return longestZigZag;
+    }
+
+    private void find(TreeNode node, boolean isLeft, int length) {
+        if (node == null) return;
+
+        longestZigZag = Math.max(longestZigZag, length);
+
+        if (isLeft) {
+            find(node.right, false, length + 1);
+            // when not zigZag
+            find(node.left, true, 1);
+        } else {
+            find(node.left, true, length + 1);
+            // when not ZigZag
+            find(node.right, false, 1);
+        }
+    }
+}
