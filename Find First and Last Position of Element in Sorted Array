@@ -1,0 +1,56 @@
+class Solution {
+    public int[] searchRange(int[] a, int t) {
+      int arr[]={-1,-1};
+      if(a.length==0){
+       return arr;
+      }
+
+// all element is same
+      if(a[0]==t && a[a.length-1]==t){
+       arr[0]=0;
+      arr[1]=a.length-1;
+      }
+      
+      int i=0;
+      int j=a.length-1;
+      int mid = (i+j)/2;
+      int pos=-1;
+
+// search target element
+
+      while(i<=j){
+
+        if(a[mid]==t){
+         pos=mid;
+         break;
+        }
+        
+        else if(a[mid]<t){
+          i=mid+1;
+          mid = (i+j)/2;
+        }
+
+       else{
+         j=mid-1;
+         mid = (i+j)/2;
+       }
+      }  
+
+      i=pos;
+      j=pos;
+
+// find range before pos and after pos
+      while( i>=0 && a[i]==t){
+        arr[0]=i;
+        i--;
+      }
+
+      while(j<a.length && j>=0 && a[j]==t){
+        arr[1]=j;
+        j++;
+      }
+
+      return arr;
+
+    }
+}
