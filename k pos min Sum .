@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Solution {
+    public static int minSumOfKSubarrays(ArrayList<Integer> arr, int k) {
+        int n = arr.size();
+        int[] prefixSum = new int[n + 1];
+        prefixSum[0] = 0;
+
+        // calculate prefix sum
+        for (int i = 1; i <= n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + arr.get(i - 1);
+        }
+
+        int minSum = Integer.MAX_VALUE;
+
+        // loop to find the minimum sum of k subarrays
+        for (int i = k; i <= n; i++) {
+            int sum = prefixSum[i] - prefixSum[i - k];
+            if (sum > 0 && sum < minSum) {
+                minSum = sum;
+            }
+        }
+        return minSum;
+    }
+    public static void main(String[] args) {
+        ArrayList<Integer> li=new ArrayList<>(Arrays.asList(10,4,2,5,6,3,8,1));
+        System.out.println(minSumOfKSubarrays(li, 3));
+        
+    }
+}
