@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+ public int lastStoneWeight(int[] arr) {
+    // Sort the arr in decreasing order
+    Arrays.sort(arr);
+    int n = arr.length;
+    while (n > 1) {
+        // Take the two heaviest arr
+        int y = arr[n-1];
+        int x = arr[n-2];
+        
+        // Update the weight of the remaining stone
+        arr[n-2] = y - x;
+        n--;
+        // Sort the arr in decreasing order again
+        Arrays.sort(arr, 0, n);
+    }
+    // If there is a stone left, return its weight
+    if (n == 1) {
+        return arr[0];
+    } else {
+        return 0;
+    }
+}
+
+
+}
