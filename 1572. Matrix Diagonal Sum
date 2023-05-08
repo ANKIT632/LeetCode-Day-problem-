@@ -1,0 +1,31 @@
+class Solution {
+    public int diagonalSum(int[][] a) {
+        int sum=0;
+        int l=a.length/2;
+        int j=a.length-1;
+        for(int i=0;i<a.length;i++){
+// when matrix are even
+          if(a.length%2==0 ){
+              sum=sum+a[i][i];
+              sum=sum+a[i][j--];
+          }
+
+// when matrix are odd
+
+         else{
+           
+              if(l!=i ){
+              sum=sum+a[i][i];
+              sum=sum+a[i][j-i];
+
+          }
+// add common middle number.
+          else{
+               sum=sum+a[i][i];
+          }
+         }
+        }
+       
+        return sum;
+    }
+}
