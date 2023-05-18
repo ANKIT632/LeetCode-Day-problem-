@@ -1,0 +1,35 @@
+class Solution {
+    public int pairSum(ListNode head) {
+    int sum=0;
+    ListNode pre=null;
+    ListNode slow=head;
+    ListNode fast=head;
+
+    while(fast!=null){
+    pre=slow;
+    slow=slow.next;
+    fast=fast.next.next;
+    }
+
+    pre.next=null;
+    
+    ListNode temp1=null;
+    ListNode temp2=head;
+    while(temp2!=null){
+        temp2=temp2.next;
+        head.next=temp1;
+        temp1=head;
+        head=temp2;
+    }
+
+   while(temp1!=null){
+     if(temp1.val+slow.val>sum){
+      sum=temp1.val+slow.val;  
+     }  
+      temp1=temp1.next;
+      slow=slow.next;
+   } 
+   
+    return sum;
+    }
+}
