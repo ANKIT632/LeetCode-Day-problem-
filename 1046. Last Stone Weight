@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
  public int lastStoneWeight(int[] arr) {
-    // Sort the arr in decreasing order
+    // Sort the arr in decreasing order 
     Arrays.sort(arr);
     int n = arr.length;
     while (n > 1) {
