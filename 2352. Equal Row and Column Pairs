@@ -1,0 +1,27 @@
+class Solution {
+    public int equalPairs(int[][] arr) {
+        int c=0;
+        boolean b=true;
+        for(int i=0;i<arr.length;i++){
+
+            for(int k=0;k<arr.length;k++){
+               
+               for(int j=0;j<arr.length;j++){
+                if(arr[i][j]!=arr[j][k]){
+                    b=false;
+                   break;
+                }
+                
+            }
+            if(b==true){
+
+              c++;
+            }
+            else{
+            b=true;
+            }
+            }
+        }
+        return c;
+    }
+}
