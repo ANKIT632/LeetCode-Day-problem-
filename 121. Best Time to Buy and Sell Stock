@@ -5,7 +5,7 @@ class Solution {
         for(int i=1;i<prices.length;i++){
             
             if(prices[i]<minVal)
-            minVal=prices[i];
+            minVal=prices[i]; 
             
             if(max<prices[i]-minVal){
             max=prices[i]-minVal;
