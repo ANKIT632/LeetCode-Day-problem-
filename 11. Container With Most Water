@@ -9,7 +9,7 @@ class Solution {
             if(sIdx==eIdx || eIdx<sIdx){
                 return sum;
             }
-            else{
+            else{ 
                 if(height[sIdx]<height[eIdx] ){
                     temp=(eIdx-sIdx)*height[sIdx];
                     sIdx++;
