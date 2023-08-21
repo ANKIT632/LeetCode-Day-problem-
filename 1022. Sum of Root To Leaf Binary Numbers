@@ -5,7 +5,7 @@ class Solution {
     } 
 
     private int dfs(TreeNode node, int currentSum) {
-        if (node == null) {
+        if (node == null) { 
             return 0;
         }
 
