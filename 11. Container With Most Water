@@ -1,7 +1,7 @@
 class Solution {
  public static int maxArea(int[] height) {
         int sIdx=0;
-        int eIdx=height.length-1;
+        int eIdx=height.length-1; 
         int sum=0;
         int temp=0;
     
